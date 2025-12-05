@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Blood Donor App",
+    "description": "A comprehensive blood donation management app built with Flutter and Node.js API, connecting donors with recipients.",
+    "tech": ["Flutter", "Node.js", "Express", "MongoDB"],
+    "category": "Full Stack",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 2,
+    "title": "Organic Food Website",
+    "description": "An e-commerce platform for organic food products built with MERN stack, featuring user authentication and payment integration.",
+    "tech": ["React", "Node.js", "Express", "MongoDB"],
+    "category": "MERN Stack",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 3,
+    "title": "Invoice Parser",
+    "description": "An intelligent invoice parsing system developed during a hackathon, extracting and organizing invoice data automatically.",
+    "tech": ["MERN", "AI/ML"],
+    "category": "Hackathon",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 4,
+    "title": "Stock Market Pattern Tool",
+    "description": "A pattern analysis tool for stock market data, helping traders identify trends and make informed decisions.",
+    "tech": ["MERN", "Data Analysis"],
+    "category": "Hackathon",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 5,
+    "title": "Cardiovascular Disease Prediction",
+    "description": "A machine learning-based system built with Streamlit UI to predict cardiovascular disease based on patient health parameters.",
+    "tech": ["Python", "Machine Learning", "Streamlit"],
+    "category": "ML Project",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 6,
+    "title": "E-Notes Platform",
+    "description": "A digital notes-sharing platform built using Python Django, allowing students to upload, manage, and download academic notes.",
+    "tech": ["Python", "Django", "SQLite"],
+    "category": "Web App",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 7,
+    "title": "Matrimonial App",
+    "description": "A matrimonial mobile application developed with Flutter, featuring profile creation, matching system, and local database storage.",
+    "tech": ["Flutter", "Dart", "sqflite"],
+    "category": "Mobile App",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 8,
+    "title": "Tic Tac Toe",
+    "description": "A classic Tic Tac Toe game built with Flutter, featuring smooth animations and an intuitive user interface.",
+    "tech": ["Flutter", "Dart"],
+    "category": "Mobile App",
+    "github": "https://github.com/harmikrathod09"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Network Fundamentals Intern",
+    "company": "Pipavav Port",
+    "year": "2022",
+    "description": "Gained hands-on experience in network infrastructure, protocols, and security fundamentals."
+  },
+  {
+    "id": 2,
+    "title": "Python Django Intern",
+    "company": "Patel Web Solution",
+    "year": "2023",
+    "description": "Developed web applications using Python and Django framework, working on backend APIs and database management."
+  }
+]
+
