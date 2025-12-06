@@ -171,7 +171,7 @@ const About = () => {
             <EducationItem>
               <Degree>B.Tech Computer Science & Engineering</Degree>
               <Institution>Darshan University</Institution>
-              <Details>CGPA: 851 | Expected Graduation: 2027</Details>
+              <Details>CGPA: 8.51 | Expected Graduation: 2027</Details>
             </EducationItem>
             <EducationItem>
               <Degree>Diploma in Computer Engineering</Degree>
