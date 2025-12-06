@@ -6,4 +6,3 @@ export const theme = {
   textSecondary: 'rgba(255, 255, 255, 0.7)',
   background: '#0f1419',
 };
-

@@ -155,6 +155,9 @@ const Navbar = () => {
             <a href="#internships" onClick={(e) => { e.preventDefault(); scrollToSection('internships'); }}>Experience</a>
           </NavLink>
           <NavLink whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <a href="#certificates" onClick={(e) => { e.preventDefault(); scrollToSection('certificates'); }}>Certificate</a>
+          </NavLink>
+          <NavLink whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
             <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a>
           </NavLink>
         </NavLinks>
