@@ -170,12 +170,12 @@ const About = () => {
             <CardTitle>Education</CardTitle>
             <EducationItem>
               <Degree>B.Tech Computer Science & Engineering</Degree>
-              <Institution>Darshan University</Institution>
+              <Institution>Darshan University - Rajkot</Institution>
               <Details>CGPA: 8.51 | Expected Graduation: 2027</Details>
             </EducationItem>
             <EducationItem>
               <Degree>Diploma in Computer Engineering</Degree>
-              <Institution>Completed</Institution>
+              <Institution>GMB Polytechnic - Rajula</Institution>
               <Details>CGPA: 9.33 | Graduated: 2024</Details>
             </EducationItem>
           </EducationCard>
