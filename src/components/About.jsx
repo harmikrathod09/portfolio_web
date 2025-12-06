@@ -137,8 +137,8 @@ const SkillTag = styled.span`
 
 const About = () => {
   const technicalSkills = ['C', 'C++', 'Java', 'Python', 'MERN', 'Flutter', 'Next.js', 'Nest.js', 'API Integration'];
-  const softSkills = ['Leadership', 'Teamwork', 'Problem-Solving'];
-  const interests = ['Photography', 'Music', 'Programming'];
+  const softSkills = ['Leadership', 'Teamwork', 'Problem-Solving', 'Creativity'];
+  const interests = [ 'Programming', 'Photography', 'Music'];
 
   return (
     <AboutSection id="about">
