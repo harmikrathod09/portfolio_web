@@ -4,7 +4,7 @@ import certificatesData from '../data/certificates.json';
 
 const CertificatesSection = styled.section`
   padding: 8rem 5%;
-  background: linear-gradient(135deg, #0f1419 0%, #1a472a 100%);
+  background: linear-gradient(135deg, #0b1624 0%, #13294b 100%);
   min-height: 100vh;
 `;
 

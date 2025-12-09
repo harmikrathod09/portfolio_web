@@ -5,7 +5,7 @@ import projectsData from '../data/projects.json';
 
 const ProjectsSection = styled.section`
   padding: 8rem 5%;
-  background: linear-gradient(135deg, #0f1419 0%, #1a472a 100%);
+  background: linear-gradient(135deg, #0b1624 0%, #13294b 100%);
   min-height: 100vh;
 `;
 
@@ -136,8 +136,37 @@ const ProjectLink = styled(motion.a)`
   }
 `;
 
+const Actions = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+`;
+
+const ViewMoreButton = styled(motion.button)`
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid ${props => props.theme.accent};
+  background: rgba(241, 194, 125, 0.12);
+  color: ${props => props.theme.text};
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${props => props.theme.accent};
+    color: ${props => props.theme.primary};
+    box-shadow: 0 12px 28px rgba(241, 194, 125, 0.25);
+  }
+`;
+
 const Projects = () => {
   const [hoveredId, setHoveredId] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const previewCount = 6;
+  const hasMore = projectsData.length > previewCount;
+  const visibleProjects = showAll ? projectsData : projectsData.slice(0, previewCount);
 
   return (
     <ProjectsSection id="projects">
@@ -160,7 +189,7 @@ const Projects = () => {
         </SectionSubtitle>
 
         <ProjectsGrid>
-          {projectsData.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -190,6 +219,17 @@ const Projects = () => {
             </ProjectCard>
           ))}
         </ProjectsGrid>
+        {hasMore && (
+          <Actions>
+            <ViewMoreButton
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? 'View fewer projects' : 'View more projects'}
+            </ViewMoreButton>
+          </Actions>
+        )}
       </Container>
     </ProjectsSection>
   );

@@ -12,6 +12,20 @@
     "company": "Patel Web Solution",
     "year": "2023",
     "description": "Developed web applications using Python and Django framework, working on backend APIs and database management."
+  },
+  {
+    "id": 3,
+    "title": "Teaching Assistant",
+    "company": "Darshan University",
+    "year": "2024 - Present",
+    "description": "Assisted in Object-Oriented Programming with Java, Python programming, and Web Designing courses; supported labs, graded assignments, and mentored students."
+  },
+  {
+    "id": 4,
+    "title": "Technical Team Member",
+    "company": "Programming Club, Darshan University",
+    "year": "2025 - Present",
+    "description": "Part of the club's technical team, organizing coding events, preparing problem sets, and mentoring peers on best practices and modern development tools."
   }
 ]
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import internshipsData from '../data/internships.json';
@@ -103,7 +104,37 @@ const Description = styled.p`
   margin-top: 1rem;
 `;
 
+const Actions = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+`;
+
+const ViewMoreButton = styled(motion.button)`
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid ${props => props.theme.accent};
+  background: rgba(241, 194, 125, 0.12);
+  color: ${props => props.theme.text};
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${props => props.theme.accent};
+    color: ${props => props.theme.primary};
+    box-shadow: 0 12px 28px rgba(241, 194, 125, 0.25);
+  }
+`;
+
 const Internships = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const previewCount = 3;
+  const hasMore = internshipsData.length > previewCount;
+  const visibleInternships = showAll ? internshipsData : internshipsData.slice(0, previewCount);
+
   return (
     <InternshipsSection id="internships">
       <Container>
@@ -125,7 +156,7 @@ const Internships = () => {
         </SectionSubtitle>
 
         <InternshipsGrid>
-          {internshipsData.map((internship, index) => (
+          {visibleInternships.map((internship, index) => (
             <InternshipCard
               key={internship.id}
               initial={{ opacity: 0, y: 50 }}
@@ -141,6 +172,17 @@ const Internships = () => {
             </InternshipCard>
           ))}
         </InternshipsGrid>
+        {hasMore && (
+          <Actions>
+            <ViewMoreButton
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? 'View fewer roles' : 'View more roles'}
+            </ViewMoreButton>
+          </Actions>
+        )}
       </Container>
     </InternshipsSection>
   );

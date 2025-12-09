@@ -1,8 +1,8 @@
 export const theme = {
-  primary: '#182933',
-  secondary: 'linear-gradient(135deg, #0f1419 0%, #1a472a 100%)',
-  accent: '#d6a463',
-  text: '#ffffff',
-  textSecondary: 'rgba(255, 255, 255, 0.7)',
-  background: '#0f1419',
+  primary: '#0c1a2e',
+  secondary: 'linear-gradient(135deg, #0a1424 0%, #13294b 100%)',
+  accent: '#f1c27d',
+  text: '#e8edf5',
+  textSecondary: 'rgba(232, 237, 245, 0.72)',
+  background: '#0a1424',
 };

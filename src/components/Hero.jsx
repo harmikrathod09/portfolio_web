@@ -12,7 +12,7 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   padding: 8rem 5% 5rem;
-  background: linear-gradient(135deg, #0f1419 0%, #1a472a 100%);
+  background: linear-gradient(135deg, #0a1424 0%, #13294b 100%);
   position: relative;
   overflow: hidden;
 
@@ -102,6 +102,29 @@ const Description = styled(motion.p)`
   max-width: 600px;
 `;
 
+const BadgeRow = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0.5rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+const Badge = styled(motion.span)`
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(241, 194, 125, 0.14);
+  border: 1px solid rgba(241, 194, 125, 0.4);
+  color: ${props => props.theme.text};
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+`;
+
 const ButtonGroup = styled(motion.div)`
   display: flex;
   gap: 1.5rem;
@@ -127,8 +150,44 @@ const Button = styled(motion.a)`
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(214, 164, 99, 0.3);
+    box-shadow: 0 10px 30px rgba(241, 194, 125, 0.35);
   }
+`;
+
+const Stats = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+`;
+
+const StatCard = styled(motion.div).attrs(props => ({
+  initial: { opacity: 0, y: 10 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5, delay: props.delay || 0 },
+}))`
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(241, 194, 125, 0.25);
+  backdrop-filter: blur(8px);
+`;
+
+const StatValue = styled.div`
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: ${props => props.theme.accent};
+`;
+
+const StatLabel = styled.div`
+  font-size: 0.95rem;
+  color: ${props => props.theme.textSecondary};
+  margin-top: 0.25rem;
 `;
 
 const ImageContainer = styled(motion.div)`
@@ -143,9 +202,9 @@ const ProfileImage = styled(motion.img)`
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid ${props => props.theme.accent};
-  box-shadow: 0 20px 60px rgba(214, 164, 99, 0.3),
-              0 0 0 10px rgba(214, 164, 99, 0.1),
-              0 0 0 20px rgba(214, 164, 99, 0.05);
+  box-shadow: 0 20px 60px rgba(241, 194, 125, 0.35),
+              0 0 0 10px rgba(241, 194, 125, 0.12),
+              0 0 0 20px rgba(241, 194, 125, 0.06);
   position: relative;
   z-index: 1;
 
@@ -189,7 +248,7 @@ const ImagePlaceholder = styled.div`
   justify-content: center;
   font-size: 4rem;
   color: ${props => props.theme.text};
-  box-shadow: 0 20px 60px rgba(214, 164, 99, 0.3);
+  box-shadow: 0 20px 60px rgba(241, 194, 125, 0.35);
   position: relative;
   overflow: hidden;
 
@@ -218,15 +277,22 @@ const ImagePlaceholder = styled.div`
 
 const Hero = () => {
   const titles = [
-    'Full Stack Developer',
-    'MERN Developer',
-    'Flutter Developer',
-    'Next.js Developer',
-    'Nest.js Developer'
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "Flutter App Developer",
+    "Next.js Developer",
+    "Node.js Backend Developer"
   ];
+  
   const [currentTitle, setCurrentTitle] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const stats = [
+    { label: 'Projects delivered', value: '12+' },
+    { label: 'Hackathons', value: '4' },
+    { label: 'Happy clients', value: '6' },
+  ];
 
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
@@ -258,7 +324,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Hi, I'm
+            Hello, I’m
           </Greeting>
           <Name
             initial={{ opacity: 0, y: 20 }}
@@ -267,6 +333,15 @@ const Hero = () => {
           >
             Harmik Rathod
           </Name>
+         { /* <BadgeRow
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Badge>Based in Gujarat, India</Badge>
+            <Badge>Open to full-time & freelance</Badge>
+            <Badge>Responds within 24 hrs</Badge>
+          </BadgeRow> */}
           <TypewriterContainer
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -280,8 +355,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Passionate about building innovative solutions and creating seamless user experiences.
-            I love turning complex problems into simple, beautiful, and intuitive designs.
+            I design and build polished digital products that blend solid engineering
+            with thoughtful UX. From web apps to mobile experiences, I focus on performance,
+            reliability, and details that make products feel premium.
           </Description>
           <ButtonGroup
             initial={{ opacity: 0, y: 20 }}
@@ -290,20 +366,32 @@ const Hero = () => {
           >
             <Button
               primary
-              href="#about"
+              href="mailto:harmikrathod56@gmail.com?subject=Project%20Opportunity"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View Resume
+              Let’s collaborate
             </Button>
             <Button
-              href="#contact"
+              href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact Me
+              View portfolio
             </Button>
           </ButtonGroup>
+          {/* <Stats
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            {stats.map((item, idx) => (
+              <StatCard key={item.label} delay={idx * 0.05}>
+                <StatValue>{item.value}</StatValue>
+                <StatLabel>{item.label}</StatLabel>
+              </StatCard>
+            ))}
+          </Stats> */}
         </HeroContent>
         <ImageContainer
           initial={{ opacity: 0, scale: 0.8 }}

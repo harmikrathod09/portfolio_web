@@ -53,6 +53,33 @@ const NavLinks = styled.ul`
   }
 `;
 
+const NavActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const HireButton = styled(motion.button)`
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid ${props => props.theme.accent};
+  background: rgba(241, 194, 125, 0.12);
+  color: ${props => props.theme.text};
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${props => props.theme.accent};
+    color: ${props => props.theme.primary};
+    box-shadow: 0 10px 25px rgba(241, 194, 125, 0.25);
+  }
+`;
+
 const NavLink = styled(motion.li)`
   a {
     color: ${props => props.theme.text};
@@ -161,6 +188,15 @@ const Navbar = () => {
             <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a>
           </NavLink>
         </NavLinks>
+        <NavActions>
+          <HireButton
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={() => scrollToSection('contact')}
+          >
+            Hire me
+          </HireButton>
+        </NavActions>
       </NavContainer>
     </Nav>
   );
