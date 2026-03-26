@@ -138,7 +138,7 @@ const SkillTag = styled.span`
 const About = () => {
   const technicalSkills = ['C', 'C++', 'Java', 'Python', 'MERN', 'Flutter', 'Next.js', 'Nest.js', 'API Integration'];
   const softSkills = ['Leadership', 'Teamwork', 'Problem-Solving', 'Creativity'];
-  const interests = [ 'Programming', 'Photography',  'Editing', 'Music Listening',];
+  const interests = ['Programming', 'Photography', 'Editing', 'Music Listening',];
 
   return (
     <AboutSection id="about">
@@ -177,6 +177,12 @@ const About = () => {
               <Degree>Diploma in Computer Engineering</Degree>
               <Institution>GMB Polytechnic - Rajula</Institution>
               <Details>CGPA: 9.33 | Graduated: 2024</Details>
+            </EducationItem>
+
+            <EducationItem>
+              <Degree>Secondary School (10th)</Degree>
+              <Institution>Shree Swami Narayan Gurukul - Rajula</Institution>
+              <Details>Percentage/CGPA: 70% | Year: 2021</Details>
             </EducationItem>
           </EducationCard>
 
