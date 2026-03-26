@@ -1,6 +1,14 @@
 [
   {
     "id": 1,
+    "title": "Chat / Summary / MCQ Generation from PDF/PPT",
+    "description": "A deep learning-powered application that enables users to upload PDF or PPT files and generate summaries, MCQs, and interact through a chat-based interface for better understanding.",
+    "tech": ["Next.js", "Python", "Deep Learning", "NLP"],
+    "category": "AI Project",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 2,
     "title": "Blood Donor App",
     "description": "A comprehensive blood donation management app built with Flutter and Node.js API, connecting donors with recipients.",
     "tech": ["Flutter", "Node.js", "Express", "MongoDB"],
@@ -8,7 +16,23 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 2,
+    "id": 3,
+    "title": "Event Management App",
+    "description": "A cross-platform event management application built with Flutter and Firebase, enabling users to create, manage, and register for events in real-time.",
+    "tech": ["Flutter", "Firebase"],
+    "category": "Mobile App",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 4,
+    "title": "Resource Management System",
+    "description": "A modern web application built with Next.js for managing organizational resources, including allocation, tracking, and reporting.",
+    "tech": ["Next.js", "React"],
+    "category": "Web App",
+    "github": "https://github.com/harmikrathod09"
+  },
+  {
+    "id": 5,
     "title": "Organic Food Website",
     "description": "An e-commerce platform for organic food products built with MERN stack, featuring user authentication and payment integration.",
     "tech": ["React", "Node.js", "Express", "MongoDB"],
@@ -16,7 +40,7 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 3,
+    "id": 6,
     "title": "Invoice Parser",
     "description": "An intelligent invoice parsing system developed during a hackathon, extracting and organizing invoice data automatically.",
     "tech": ["MERN", "AI/ML"],
@@ -24,7 +48,7 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 4,
+    "id": 7,
     "title": "Stock Market Pattern Tool",
     "description": "A pattern analysis tool for stock market data, helping traders identify trends and make informed decisions.",
     "tech": ["MERN", "Data Analysis"],
@@ -32,7 +56,7 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 5,
+    "id": 8,
     "title": "Cardiovascular Disease Prediction",
     "description": "A machine learning-based system built with Streamlit UI to predict cardiovascular disease based on patient health parameters.",
     "tech": ["Python", "Machine Learning", "Streamlit"],
@@ -40,7 +64,7 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 6,
+    "id": 9,
     "title": "E-Notes Platform",
     "description": "A digital notes-sharing platform built using Python Django, allowing students to upload, manage, and download academic notes.",
     "tech": ["Python", "Django", "SQLite"],
@@ -48,7 +72,7 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 7,
+    "id": 10,
     "title": "Matrimonial App",
     "description": "A matrimonial mobile application developed with Flutter, featuring profile creation, matching system, and local database storage.",
     "tech": ["Flutter", "Dart", "sqflite"],
@@ -56,7 +80,7 @@
     "github": "https://github.com/harmikrathod09"
   },
   {
-    "id": 8,
+    "id": 11,
     "title": "Tic Tac Toe",
     "description": "A classic Tic Tac Toe game built with Flutter, featuring smooth animations and an intuitive user interface.",
     "tech": ["Flutter", "Dart"],
