@@ -13,14 +13,11 @@ const FooterContainer = styled.footer`
   gap: 2rem;
 `;
 
-const Copyright = styled.p`
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.4);
-  text-align: center;
-`;
-
 const FooterLink = styled.a`
   color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
   transition: color 0.3s ease;
   
   &:hover {
@@ -31,10 +28,7 @@ const FooterLink = styled.a`
 const Footer = () => {
   return (
     <FooterContainer>
-      <Copyright>
-        © {new Date().getFullYear()} Harmik Rathod. Built with React & Framer Motion.
-      </Copyright>
-      <div style={{ display: 'flex', gap: '1.5rem', opacity: 0.5 }}>
+      <div style={{ display: 'flex', gap: '2rem', opacity: 0.8 }}>
         <FooterLink href="https://github.com/harmikrathod09" target="_blank">GitHub</FooterLink>
         <FooterLink href="https://linkedin.com/in/harmikrathod" target="_blank">LinkedIn</FooterLink>
         <FooterLink href="https://instagram.com/iamharmikrathod" target="_blank">Instagram</FooterLink>
