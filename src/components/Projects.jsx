@@ -4,26 +4,32 @@ import { motion } from 'framer-motion';
 import projectsData from '../data/projects.json';
 
 const ProjectsSection = styled.section`
-  padding: 8rem 5%;
-  background: linear-gradient(135deg, #0b1624 0%, #13294b 100%);
+  padding: 100px 5% 60px;
+  background: transparent;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 3rem;
-  font-weight: 700;
-  color: ${props => props.theme.accent};
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1.5rem;
   text-align: center;
+  letter-spacing: -2px;
+  line-height: 1;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
   }
 `;
 
@@ -31,140 +37,130 @@ const SectionSubtitle = styled(motion.p)`
   font-size: 1.2rem;
   color: ${props => props.theme.textSecondary};
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 `;
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem;
-  margin-top: 4rem;
-
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;
 
-const ProjectCard = styled(motion.div)`
-  background: rgba(15, 20, 25, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(214, 164, 99, 0.2);
-  border-radius: 20px;
-  padding: 2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(214, 164, 99, 0.1) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+const ProjectCard = styled(motion.div).attrs({ className: 'glass-card' })`
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
-    transform: translateY(-10px);
-    border-color: ${props => props.theme.accent};
-    box-shadow: 0 20px 40px rgba(214, 164, 99, 0.2);
-
     &::before {
       opacity: 1;
+      background: linear-gradient(135deg, ${props => props.theme.accent}, transparent, ${props => props.theme.accentSecondary});
+    }
+
+    h3 {
+      color: white;
+      transform: translateX(5px);
     }
   }
 `;
 
+
 const CategoryBadge = styled.span`
   display: inline-block;
-  padding: 0.4rem 1rem;
-  background: rgba(214, 164, 99, 0.2);
-  border: 1px solid rgba(214, 164, 99, 0.4);
-  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
   color: ${props => props.theme.accent};
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  width: fit-content;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.5rem;
-  color: ${props => props.theme.text};
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: ${props => props.theme.textSecondary};
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
 `;
 
 const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  gap: 0.6rem;
 `;
 
 const TechTag = styled.span`
-  padding: 0.4rem 0.8rem;
-  background: rgba(214, 164, 99, 0.1);
-  border: 1px solid rgba(214, 164, 99, 0.3);
-  border-radius: 15px;
-  color: ${props => props.theme.text};
-  font-size: 0.85rem;
-`;
-
-const ProjectLink = styled(motion.a)`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: ${props => props.theme.accent};
-  text-decoration: none;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
   font-weight: 600;
-  font-size: 1rem;
   transition: all 0.3s ease;
 
   &:hover {
-    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
   }
 `;
 
 const Actions = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 5rem;
 `;
 
 const ViewMoreButton = styled(motion.button)`
-  padding: 0.9rem 1.8rem;
-  border-radius: 999px;
-  border: 1px solid ${props => props.theme.accent};
-  background: rgba(241, 194, 125, 0.12);
-  color: ${props => props.theme.text};
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  padding: 1.2rem 3rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 
   &:hover {
-    background: ${props => props.theme.accent};
-    color: ${props => props.theme.primary};
-    box-shadow: 0 12px 28px rgba(241, 194, 125, 0.25);
+    background: white;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
   }
 `;
 
+
 const Projects = () => {
-  const [hoveredId, setHoveredId] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
-  const previewCount = 6;
+  const previewCount = 4;
+
   const hasMore = projectsData.length > previewCount;
   const visibleProjects = showAll ? projectsData : projectsData.slice(0, previewCount);
 
@@ -175,30 +171,28 @@ const Projects = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          My Projects
+          Featured Work
         </SectionTitle>
         <SectionSubtitle
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          A collection of projects I've built with passion and dedication
+          A selection of my recent projects, showcasing my skills in full-stack development and app design.
         </SectionSubtitle>
 
         <ProjectsGrid>
           {visibleProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredId(project.id)}
-              onHoverEnd={() => setHoveredId(null)}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ y: -10 }}
             >
               <CategoryBadge>{project.category}</CategoryBadge>
               <ProjectTitle>{project.title}</ProjectTitle>
@@ -208,25 +202,17 @@ const Projects = () => {
                   <TechTag key={techIndex}>{tech}</TechTag>
                 ))}
               </TechStack>
-              {/* <ProjectLink
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ x: 5 }}
-              >
-                View on GitHub →
-              </ProjectLink> */}
             </ProjectCard>
           ))}
         </ProjectsGrid>
         {hasMore && (
           <Actions>
             <ViewMoreButton
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setShowAll(!showAll)}
             >
-              {showAll ? 'View fewer projects' : 'View more projects'}
+              {showAll ? 'Show less' : 'View all projects'}
             </ViewMoreButton>
           </Actions>
         )}

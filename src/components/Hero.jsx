@@ -11,27 +11,18 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 5% 5rem;
-  background: linear-gradient(135deg, #0a1424 0%, #13294b 100%);
+  padding: 8rem 5% 4rem;
+
+  background: transparent;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(214, 164, 99, 0.1) 0%, transparent 50%);
-  }
 `;
 
 const HeroContainer = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 4rem;
   align-items: center;
   z-index: 1;
@@ -39,6 +30,8 @@ const HeroContainer = styled.div`
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 3rem;
+    padding-top: 2rem;
   }
 `;
 
@@ -49,44 +42,63 @@ const HeroContent = styled.div`
 `;
 
 const Greeting = styled(motion.div)`
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: ${props => props.theme.accent};
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  background: rgba(0, 210, 255, 0.1);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  width: fit-content;
+  border: 1px solid rgba(0, 210, 255, 0.2);
+
+  @media (max-width: 968px) {
+    margin: 0 auto;
+  }
 `;
 
 const Name = styled(motion.h1)`
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: 6rem;
+  font-weight: 900;
   color: ${props => props.theme.text};
   margin: 0;
-  line-height: 1.2;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  background: linear-gradient(to bottom, #ffffff 30%, #555555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 4rem;
+    letter-spacing: -2px;
   }
 `;
 
 const TypewriterContainer = styled(motion.div)`
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   color: ${props => props.theme.text};
-  min-height: 2.5rem;
-  font-weight: 600;
+  min-height: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
 
   @media (max-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 `;
 
 const TypewriterText = styled.span`
-  color: ${props => props.theme.accent};
+  background: ${props => props.theme.gradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const Cursor = styled.span`
   display: inline-block;
-  width: 3px;
-  height: 1.5rem;
+  width: 4px;
+  height: 2.2rem;
   background: ${props => props.theme.accent};
-  margin-left: 4px;
+  margin-left: 8px;
   animation: blink 1s infinite;
 
   @keyframes blink {
@@ -96,115 +108,76 @@ const Cursor = styled.span`
 `;
 
 const Description = styled(motion.p)`
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: ${props => props.theme.textSecondary};
   line-height: 1.6;
-  max-width: 600px;
-`;
-
-const BadgeRow = styled(motion.div)`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 0.5rem 0 0.5rem;
-
-  @media (max-width: 768px) {
-    justify-content: center;
+  max-width: 650px;
+  font-weight: 400;
+  
+  @media (max-width: 968px) {
+    margin: 0 auto;
   }
-`;
-
-const Badge = styled(motion.span)`
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  background: rgba(241, 194, 125, 0.14);
-  border: 1px solid rgba(241, 194, 125, 0.4);
-  color: ${props => props.theme.text};
-  font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
 `;
 
 const ButtonGroup = styled(motion.div)`
   display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.2rem;
+  margin-top: 2rem;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 `;
 
 const Button = styled(motion.a)`
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 50px;
+  padding: 1rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 100px;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid ${props => props.primary ? props.theme.accent : 'transparent'};
-  background: ${props => props.primary ? props.theme.accent : 'transparent'};
-  color: ${props => props.primary ? props.theme.primary : props.theme.accent};
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  
+  ${props => props.primary ? `
+    background: white;
+    color: black;
+    border: 1px solid white;
+  ` : `
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  `}
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(241, 194, 125, 0.35);
+    ${props => props.primary ? `
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    ` : `
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    `}
   }
-`;
-
-const Stats = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-`;
-
-const StatCard = styled(motion.div).attrs(props => ({
-  initial: { opacity: 0, y: 10 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, delay: props.delay || 0 },
-}))`
-  padding: 1rem 1.25rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(241, 194, 125, 0.25);
-  backdrop-filter: blur(8px);
-`;
-
-const StatValue = styled.div`
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: ${props => props.theme.accent};
-`;
-
-const StatLabel = styled.div`
-  font-size: 0.95rem;
-  color: ${props => props.theme.textSecondary};
-  margin-top: 0.25rem;
 `;
 
 const ImageContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const ProfileImage = styled(motion.img)`
   width: 400px;
   height: 400px;
-  border-radius: 50%;
+  border-radius: 40px;
   object-fit: cover;
-  border: 4px solid ${props => props.theme.accent};
-  box-shadow: 0 20px 60px rgba(241, 194, 125, 0.35),
-              0 0 0 10px rgba(241, 194, 125, 0.12),
-              0 0 0 20px rgba(241, 194, 125, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 1;
 
@@ -214,66 +187,70 @@ const ProfileImage = styled(motion.img)`
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled(motion.div)`
   position: relative;
   display: inline-block;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
 
-  &::before {
+  &::after {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, ${props => props.theme.accent}, ${props => props.theme.primary});
-    opacity: 0.3;
-    z-index: 0;
-    animation: rotate 3s linear infinite;
-  }
-
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    inset: -20px;
+    background: radial-gradient(circle, ${props => props.theme.accent}22 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(20px);
   }
 `;
 
-const ImagePlaceholder = styled.div`
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, ${props => props.theme.accent} 0%, ${props => props.theme.primary} 100%);
+const LocationBadge = styled(motion.div)`
+  position: absolute;
+  bottom: 30px;
+  right: -20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 0.8rem 1.4rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  color: ${props => props.theme.text};
-  box-shadow: 0 20px 60px rgba(241, 194, 125, 0.35);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(214, 164, 99, 0.1), transparent);
-    animation: rotate 3s linear infinite;
-  }
-
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+  gap: 0.6rem;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    width: 300px;
-    height: 300px;
-    font-size: 3rem;
+    bottom: 20px;
+    right: 0;
+    padding: 0.6rem 1rem;
   }
 `;
+
+const Dot = styled.div`
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff88;
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+`;
+
+const LocationText = styled.span`
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+`;
+
+
 
 const Hero = () => {
   const titles = [
@@ -283,16 +260,10 @@ const Hero = () => {
     "Next.js Developer",
     "Node.js Backend Developer"
   ];
-  
+
   const [currentTitle, setCurrentTitle] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const stats = [
-    { label: 'Projects delivered', value: '12+' },
-    { label: 'Hackathons', value: '4' },
-    { label: 'Happy clients', value: '6' },
-  ];
 
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
@@ -320,32 +291,23 @@ const Hero = () => {
       <HeroContainer>
         <HeroContent>
           <Greeting
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Hello, I’m
+            Available for hire
           </Greeting>
           <Name
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             Harmik Rathod
           </Name>
-         { /* <BadgeRow
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Badge>Based in Gujarat, India</Badge>
-            <Badge>Open to full-time & freelance</Badge>
-            <Badge>Responds within 24 hrs</Badge>
-          </BadgeRow> */}
           <TypewriterContainer
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             <TypewriterText>{currentTitle}</TypewriterText>
             <Cursor />
@@ -353,7 +315,7 @@ const Hero = () => {
           <Description
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
             I design and build polished digital products that blend solid engineering
             with thoughtful UX. From web apps to mobile experiences, I focus on performance,
@@ -362,7 +324,7 @@ const Hero = () => {
           <ButtonGroup
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
           >
             <Button
               primary
@@ -377,40 +339,34 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View portfolio
+              View projects
             </Button>
           </ButtonGroup>
-          {/* <Stats
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
-            {stats.map((item, idx) => (
-              <StatCard key={item.label} delay={idx * 0.05}>
-                <StatValue>{item.value}</StatValue>
-                <StatLabel>{item.label}</StatLabel>
-              </StatCard>
-            ))}
-          </Stats> */}
         </HeroContent>
         <ImageContainer
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 1, delay: 0.4 }}
         >
-          {profileImage ? (
-            <ImageWrapper>
+          <ImageWrapper
+            animate={{
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            {profileImage ? (
               <ProfileImage
                 src={profileImage}
-                alt="Harmik Rathod - Full Stack Developer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                alt="Harmik Rathod"
               />
-            </ImageWrapper>
-          ) : (
-            <ImagePlaceholder>HR</ImagePlaceholder>
-          )}
+            ) : (
+              <div style={{ width: 380, height: 380, background: 'linear-gradient(135deg, #00d2ff, #9d50bb)', borderRadius: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', fontWeight: 800 }}>HR</div>
+            )}
+          </ImageWrapper>
         </ImageContainer>
       </HeroContainer>
     </HeroSection>

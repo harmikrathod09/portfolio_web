@@ -9,11 +9,17 @@ import Projects from './components/Projects';
 import Internships from './components/Internships';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <div className="bg-orbs">
+        <div className="orb orb-1"></div>
+        <div className="orb orb-2"></div>
+        <div className="orb orb-3"></div>
+      </div>
       <CustomCursor />
       <Navbar />
       <Hero />
@@ -22,8 +28,10 @@ function App() {
       <Internships />
       <Certificates />
       <Contact />
+      <Footer />
     </ThemeProvider>
   );
 }
+
 
 export default App;

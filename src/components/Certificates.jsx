@@ -3,26 +3,32 @@ import { motion } from 'framer-motion';
 import certificatesData from '../data/certificates.json';
 
 const CertificatesSection = styled.section`
-  padding: 8rem 5%;
-  background: linear-gradient(135deg, #0b1624 0%, #13294b 100%);
+  padding: 100px 5% 60px;
+  background: transparent;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 3rem;
-  font-weight: 700;
-  color: ${props => props.theme.accent};
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1.5rem;
   text-align: center;
+  letter-spacing: -2px;
+  line-height: 1;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
   }
 `;
 
@@ -30,91 +36,81 @@ const SectionSubtitle = styled(motion.p)`
   font-size: 1.2rem;
   color: ${props => props.theme.textSecondary};
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const CertificatesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2.5rem;
-  margin-top: 4rem;
-
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;
 
-const CertificateCard = styled(motion.div)`
-  background: rgba(15, 20, 25, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(214, 164, 99, 0.2);
-  border-radius: 20px;
-  padding: 2.5rem;
+const CertificateCard = styled(motion.div).attrs({ className: 'glass-card' })`
+  padding: 2.5rem 3rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(214, 164, 99, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
 
   &:hover {
-    transform: translateY(-10px);
-    border-color: ${props => props.theme.accent};
-    box-shadow: 0 20px 40px rgba(214, 164, 99, 0.2);
-
-    &::before {
-      opacity: 1;
+    .icon-wrapper {
+      transform: scale(1.1) rotate(5deg);
+      background: white;
+      color: black;
+      border-color: white;
     }
   }
 `;
 
-const CertificateIcon = styled.div`
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, ${props => props.theme.accent} 0%, ${props => props.theme.primary} 100%);
-  border-radius: 50%;
+
+const CertificateIcon = styled.div.attrs({ className: 'icon-wrapper' })`
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
-  color: ${props => props.theme.text};
-  box-shadow: 0 10px 30px rgba(214, 164, 99, 0.3);
+  font-size: 1.8rem;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 const CertificateTitle = styled.h3`
-  font-size: 1.5rem;
-  color: ${props => props.theme.accent};
+  font-size: 1.8rem;
+  color: white;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
 `;
 
 const CertificateDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: ${props => props.theme.textSecondary};
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
 `;
 
 const Year = styled.span`
   display: inline-block;
-  padding: 0.4rem 1rem;
-  background: rgba(214, 164, 99, 0.2);
-  border: 1px solid rgba(214, 164, 99, 0.4);
-  border-radius: 20px;
+  padding: 0.6rem 1.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
   color: ${props => props.theme.accent};
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `;
+
 
 const Certificates = () => {
   return (
@@ -124,28 +120,28 @@ const Certificates = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          Certificates & Achievements
+          Certifications
         </SectionTitle>
         <SectionSubtitle
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Recognition for my work and achievements
+          Professional certifications and technical milestones
         </SectionSubtitle>
 
         <CertificatesGrid>
           {certificatesData.map((certificate, index) => (
             <CertificateCard
               key={certificate.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
             >
               <CertificateIcon>🏆</CertificateIcon>
               <CertificateTitle>{certificate.title}</CertificateTitle>
