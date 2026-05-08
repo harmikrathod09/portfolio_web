@@ -199,7 +199,7 @@ const About = () => {
             <EducationItem>
               <Degree>B.Tech Computer Science & Engineering</Degree>
               <Institution>Darshan University - Rajkot</Institution>
-              <Details>CGPA: 8.51 | Expected Graduation: 2027</Details>
+              <Details>CGPA: 8.53 | Expected Graduation: 2027</Details>
             </EducationItem>
             <EducationItem>
               <Degree>Diploma in Computer Engineering</Degree>
@@ -209,7 +209,7 @@ const About = () => {
             <EducationItem>
               <Degree>Secondary School (10th)</Degree>
               <Institution>Shree Swami Narayan Gurukul - Rajula</Institution>
-              <Details>Percentage/CGPA: 70% | Year: 2021</Details>
+              <Details>Percentage/CGPA: 64% | Year: 2021</Details>
             </EducationItem>
           </GlassCard>
 
