@@ -1,16 +1,100 @@
-# React + Vite
+# Hi 👋, I'm Harmik Rathod
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Full Stack Developer | Flutter Developer | MERN Stack Enthusiast
 
-Currently, two official plugins are available:
+🌐 Portfolio: [harmik-portfolio.vercel.app](https://harmik-portfolio.vercel.app/)  
+💼 LinkedIn: [linkedin.com/in/harmikrathod](https://www.linkedin.com/in/harmikrathod/)  
+📧 Email: harmikrathod56@gmail.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 About Me
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎓 Computer Science Student
+- 💻 Passionate about Web & Mobile App Development
+- 🚀 Building scalable applications using MERN Stack & Flutter
+- 🌱 Currently learning Data Engineering, Advanced SQL & Python
+- 🛠 Love creating modern UI/UX and real-world SaaS products
+- ⚡ Focused on clean UI, backend performance, and scalable systems
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+### 💻 Frontend
+- HTML5
+- CSS3
+- JavaScript
+- React.js
+- Next.js
+- Tailwind CSS
+- Bootstrap
+
+### ⚙️ Backend
+- Node.js
+- Express.js
+- REST APIs
+
+### 📱 Mobile Development
+- Flutter
+- Dart
+- GetX
+
+### 🗄️ Database
+- MongoDB
+- MySQL
+- SQL
+
+### 🧠 Programming Languages
+- JavaScript
+- Python
+- Java
+- C
+
+### 🧰 Tools & Platforms
+- Git & GitHub
+- Postman
+- Firebase
+- Vercel
+- VS Code
+
+---
+
+## 📌 Featured Projects
+
+### 🔹 Soulmate Hub
+A Flutter-based matrimonial application with API integration, search, sorting, filtering, and favorite functionality.
+
+### 🔹 Blood Donor App
+A blood donor management system built using Flutter, Node.js, Express.js, and MongoDB.
+
+### 🔹 Invoice Parser
+AI-powered invoice parsing system developed using MERN Stack for hackathon projects.
+
+### 🔹 Tic Tac Toe Game
+Offline multiplayer Tic Tac Toe game with dedicated download website and custom UI.
+
+---
+
+## 📊 GitHub Stats
+
+```txt
+🚀 Passionate Developer
+💡 Continuous Learner
+🔥 Building Real-World Projects
+⭐ Open Source Enthusiast
+```
+
+---
+
+## 🌐 Connect With Me
+
+- 🌍 Portfolio: [Portfolio Website](https://harmik-portfolio.vercel.app/)
+- 💼 LinkedIn: [Harmik Rathod](https://www.linkedin.com/in/harmikrathod/)
+- 📧 Email: harmikrathod56@gmail.com
+
+---
+
+# ✨ Motto
+
+> "Code. Learn. Build. Repeat."
