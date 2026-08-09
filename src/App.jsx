@@ -1,7 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -16,11 +15,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <div className="bg-orbs">
-        <div className="orb orb-1"></div>
-        <div className="orb orb-2"></div>
-        <div className="orb orb-3"></div>
+        <div className="bg-radial-glow"></div>
+        <div className="bg-grid"></div>
+        <div className="orb orb-cyan"></div>
+        <div className="orb orb-gold"></div>
       </div>
-      <CustomCursor />
       <Navbar />
       <Hero />
       <About />
@@ -32,6 +31,5 @@ function App() {
     </ThemeProvider>
   );
 }
-
 
 export default App;

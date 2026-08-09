@@ -1,49 +1,82 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { FiCode, FiTerminal, FiPlay } from 'react-icons/fi';
 
-const Nav = styled(motion.nav)`
+const NavHeader = styled(motion.header)`
   position: fixed;
-  top: 0;
+  top: 1.2rem;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: ${props => props.scrolled ? '0.7rem 5%' : '1.2rem 5%'};
-  background: ${props => props.scrolled ? 'rgba(0, 0, 0, 0.5)' : 'transparent'};
-  backdrop-filter: ${props => props.scrolled ? 'blur(16px)' : 'none'};
-  -webkit-backdrop-filter: ${props => props.scrolled ? 'blur(16px)' : 'none'};
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom: ${props => props.scrolled ? `1px solid rgba(255, 255, 255, 0.1)` : 'none'};
-  
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  pointer-events: none;
+
   @media (max-width: 768px) {
-    padding: 1rem 1.5rem;
-    background: ${props => props.scrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent'};
+    top: 0.8rem;
   }
 `;
 
-const NavContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+const NavContainer = styled.nav`
+  pointer-events: auto;
+  width: 100%;
+  max-width: 980px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: ${props => props.scrolled ? '0.55rem 1.4rem' : '0.8rem 1.8rem'};
+  background: ${props => props.scrolled ? 'rgba(11, 22, 27, 0.92)' : 'rgba(16, 36, 45, 0.8)'};
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 217, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    border-radius: 20px;
+    padding: 0.75rem 1.2rem;
+  }
+`;
+
+const ScrollProgressBar = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, ${props => props.theme.cyan} 0%, ${props => props.theme.gold} 100%);
+  width: ${props => props.progress}%;
+  transition: width 0.1s ease-out;
 `;
 
 const Logo = styled(motion.div)`
-  font-size: 1.8rem;
-  font-weight: 900;
-  background: ${props => props.theme.gradient};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: ${props => props.theme.text};
   cursor: pointer;
-  letter-spacing: -2px;
-  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  .prompt {
+    color: ${props => props.theme.gold};
+  }
+
+  span {
+    color: ${props => props.theme.cyan};
+  }
 `;
 
 const NavLinks = styled.ul`
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.4rem;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -52,25 +85,64 @@ const NavLinks = styled.ul`
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 1.5rem;
-    gap: 2.5rem;
+    background: rgba(7, 17, 22, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 2rem;
+    gap: 2rem;
     transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(100%)'};
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 999;
+  }
+`;
+
+const NavLink = styled(motion.li)`
+  a {
+    color: ${props => props.active ? props.theme.cyan : props.theme.textSecondary};
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: ${props => props.active ? '600' : '500'};
+    position: relative;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    background: ${props => props.active ? 'rgba(56, 217, 255, 0.08)' : 'transparent'};
+    border: 1px solid ${props => props.active ? 'rgba(56, 217, 255, 0.2)' : 'transparent'};
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    .ext {
+      font-size: 0.72rem;
+      opacity: 0.6;
+    }
+
+    &:hover {
+      color: ${props => props.theme.cyan};
+      border-color: rgba(56, 217, 255, 0.3);
+      background: rgba(56, 217, 255, 0.06);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: ${props => props.active ? props.theme.cyan : props.theme.text};
+      background: transparent;
+      border: none;
+    }
   }
 `;
 
 const NavActions = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 
   @media (max-width: 768px) {
     display: none;
@@ -78,58 +150,26 @@ const NavActions = styled.div`
 `;
 
 const HireButton = styled(motion.button)`
-  padding: 0.7rem 1.8rem;
+  padding: 0.45rem 1.1rem;
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: white;
-  color: black;
-  font-weight: 700;
-  font-size: 0.9rem;
+  border: 1px solid rgba(56, 217, 255, 0.3);
+  background: rgba(56, 217, 255, 0.1);
+  color: ${props => props.theme.cyan};
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 0.8rem;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-  }
-`;
-
-const NavLink = styled(motion.li)`
-  a {
-    color: ${props => props.theme.textSecondary};
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
-    padding: 0.5rem 0;
-
-    &:hover {
-      color: ${props => props.theme.text};
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: ${props => props.theme.accent};
-      transition: all 0.3s ease;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 2rem;
-      font-weight: 700;
-      color: ${props => props.theme.text};
-    }
+    background: ${props => props.theme.cyan};
+    color: #071116;
+    border-color: ${props => props.theme.cyan};
+    box-shadow: 0 0 20px rgba(56, 217, 255, 0.4);
+    transform: translateY(-1px);
   }
 `;
 
@@ -138,10 +178,10 @@ const MenuButton = styled(motion.button)`
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: ${props => props.theme.text};
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   z-index: 1001;
   align-items: center;
@@ -152,14 +192,33 @@ const MenuButton = styled(motion.button)`
   }
 `;
 
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Scroll progress
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolledPercent = (winScroll / height) * 100;
+      setScrollProgress(scrolledPercent);
+
+      // Active section detection
+      const sections = ['hero', 'about', 'projects', 'internships', 'certificates', 'contact'];
+      const scrollPosition = window.scrollY + 120;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -169,7 +228,7 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
+      const offset = 90;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -184,59 +243,69 @@ const Navbar = () => {
   };
 
   return (
-    <Nav
-      scrolled={scrolled}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, cubicBezier: [0.4, 0, 0.2, 1] }}
+    <NavHeader
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <NavContainer>
+      <NavContainer scrolled={scrolled}>
+        <ScrollProgressBar progress={scrollProgress} />
         <Logo
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
           onClick={() => scrollToSection('hero')}
         >
-          HR
+          <span className="prompt">&gt;_</span> HR<span>.dev</span>
         </Logo>
-        
+
         <NavLinks isOpen={isMenuOpen}>
-          <NavLink whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a>
+          <NavLink active={activeSection === 'about'} whileTap={{ scale: 0.97 }}>
+            <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
+              <span>About</span><span className="ext">.ts</span>
+            </a>
           </NavLink>
-          <NavLink whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a>
+          <NavLink active={activeSection === 'projects'} whileTap={{ scale: 0.97 }}>
+            <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
+              <span>Projects</span><span className="ext">.json</span>
+            </a>
           </NavLink>
-          <NavLink whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <a href="#internships" onClick={(e) => { e.preventDefault(); scrollToSection('internships'); }}>Experience</a>
+          <NavLink active={activeSection === 'internships'} whileTap={{ scale: 0.97 }}>
+            <a href="#internships" onClick={(e) => { e.preventDefault(); scrollToSection('internships'); }}>
+              <span>Experience</span><span className="ext">.log</span>
+            </a>
           </NavLink>
-          <NavLink whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <a href="#certificates" onClick={(e) => { e.preventDefault(); scrollToSection('certificates'); }}>Certificates</a>
+          <NavLink active={activeSection === 'certificates'} whileTap={{ scale: 0.97 }}>
+            <a href="#certificates" onClick={(e) => { e.preventDefault(); scrollToSection('certificates'); }}>
+              <span>Certificates</span><span className="ext">.key</span>
+            </a>
           </NavLink>
-          <NavLink whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a>
+          <NavLink active={activeSection === 'contact'} whileTap={{ scale: 0.97 }}>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
+              <span>Contact</span><span className="ext">.sh</span>
+            </a>
           </NavLink>
         </NavLinks>
 
         <NavActions>
           <HireButton
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => scrollToSection('contact')}
           >
-            Hire me
+            <FiPlay style={{ fontSize: '0.75rem' }} /> Hire Me
           </HireButton>
         </NavActions>
 
         <MenuButton
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           whileTap={{ scale: 0.9 }}
+          aria-label="Toggle Navigation Menu"
         >
           {isMenuOpen ? '✕' : '☰'}
         </MenuButton>
       </NavContainer>
-    </Nav>
+    </NavHeader>
   );
 };
 
 export default Navbar;
-
