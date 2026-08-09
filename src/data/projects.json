@@ -7,14 +7,15 @@
     "category": "AI Project",
     "github": "https://github.com/harmikrathod09"
   },
+  
   {
-    "id": 2,
-    "title": "Blood Donor App",
-    "description": "A comprehensive blood donation management app built with Flutter and Node.js API, connecting donors with recipients.",
-    "tech": ["Flutter", "Node.js", "Express", "MongoDB"],
-    "category": "Full Stack",
-    "github": "https://github.com/harmikrathod09"
-  },
+"id": 2,
+"title": "Bloodify - Blood Donor App",
+"description": "A comprehensive blood donation management application built with Flutter and Firebase, connecting blood donors, recipients, and blood banks through real-time data and notifications.",
+"tech": ["Flutter", "Firebase", "Cloud Firestore", "Firebase Authentication", "Firebase Cloud Messaging"],
+"category": "Full Stack",
+"github": "https://github.com/harmikrathod09"
+},
   {
     "id": 3,
     "title": "Event Management App",
