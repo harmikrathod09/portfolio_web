@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FiGitBranch, FiCheckCircle, FiCpu } from 'react-icons/fi';
 
 const FooterContainer = styled.footer`
-  background: #071116;
+  background: #04090C;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@ const FooterLink = styled.a`
 
 const IDEStatusBar = styled.div`
   width: 100%;
-  background: #0D1B22;
+  background: #020608;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.4rem 5%;
   font-family: 'JetBrains Mono', monospace;

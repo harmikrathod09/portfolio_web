@@ -53,17 +53,17 @@ const SectionSubtitle = styled(motion.p)`
 
 /* Android Studio IDE Window Wrapper */
 const IDEWindow = styled.div`
-  background: #0B161B;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #03080B;
+  border: 1px solid rgba(56, 217, 255, 0.15);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(56, 217, 255, 0.06);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 217, 255, 0.08);
   display: flex;
   flex-direction: column;
 `;
 
 const IDETopBar = styled.div`
-  background: #071116;
+  background: #010406;
   padding: 0.75rem 1.2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -145,7 +145,7 @@ const IDEWorkspace = styled.div`
 
 /* Left File Explorer Pane */
 const ExplorerPane = styled.div`
-  background: #0D1B22;
+  background: #04090C;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.2rem;
   display: flex;
@@ -273,13 +273,13 @@ const ProjectTreeItem = styled.div`
 
 /* Right Code Editor Pane */
 const EditorPane = styled.div`
-  background: #10242D;
+  background: #070F14;
   display: flex;
   flex-direction: column;
 `;
 
 const EditorTabHeader = styled.div`
-  background: #0B161B;
+  background: #03070A;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
@@ -291,7 +291,7 @@ const EditorTab = styled.div`
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
   padding: 0.6rem 1.2rem;
-  background: #10242D;
+  background: #070F14;
   color: ${props => props.isBloodify ? '#ff8080' : props.theme.cyan};
   border-top: 2px solid ${props => props.isBloodify ? '#ff5252' : props.theme.cyan};
   border-right: 1px solid rgba(255, 255, 255, 0.08);
@@ -377,7 +377,7 @@ const ProjectTitle = styled.h3`
 `;
 
 const DocstringBlock = styled.div`
-  background: rgba(7, 17, 22, 0.7);
+  background: #03080B;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-left: 3px solid ${props => props.isBloodify ? '#ff5252' : props.theme.cyan};
   border-radius: 10px;
@@ -395,7 +395,7 @@ const DocstringBlock = styled.div`
 `;
 
 const CodeSnippetBlock = styled.div`
-  background: rgba(7, 17, 22, 0.85);
+  background: #03080B;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
   padding: 1rem 1.2rem;

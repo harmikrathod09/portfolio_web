@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
-    background: #071116;
+    background: #04090C;
   }
 
   .bg-radial-glow {

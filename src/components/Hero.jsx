@@ -184,21 +184,21 @@ const VisualCardContainer = styled(motion.div)`
 const IDEMainWindow = styled.div`
   width: 100%;
   max-width: 480px;
-  background: ${props => props.theme.cardBackground};
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #020608;
+  border: 1px solid rgba(56, 217, 255, 0.2);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(56, 217, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 217, 255, 0.08);
   position: relative;
   transition: border-color 0.3s ease;
 
   &:hover {
-    border-color: rgba(56, 217, 255, 0.3);
+    border-color: rgba(56, 217, 255, 0.4);
   }
 `;
 
 const IDETopBar = styled.div`
-  background: #0D1B22;
+  background: #03070A;
   padding: 0.7rem 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;

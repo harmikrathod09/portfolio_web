@@ -59,7 +59,7 @@ const HighlightMetrics = styled.div`
 `;
 
 const MetricCard = styled(motion.div)`
-  background: #0B161B;
+  background: #050B0E;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   overflow: hidden;
@@ -76,7 +76,7 @@ const MetricCard = styled(motion.div)`
 `;
 
 const MetricTopBar = styled.div`
-  background: #071116;
+  background: #03070A;
   padding: 0.45rem 0.85rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -154,7 +154,7 @@ const Column = styled.div`
 `;
 
 const IDECard = styled(motion.div)`
-  background: #0B161B;
+  background: #050B0E;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   overflow: hidden;
@@ -169,7 +169,7 @@ const IDECard = styled(motion.div)`
 `;
 
 const IDETopBar = styled.div`
-  background: #071116;
+  background: #03070A;
   padding: 0.65rem 1.2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;

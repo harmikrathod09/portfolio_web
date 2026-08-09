@@ -51,15 +51,15 @@ const SectionSubtitle = styled(motion.p)`
 `;
 
 const TerminalContainer = styled.div`
-  background: #0B161B;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #03080B;
+  border: 1px solid rgba(56, 217, 255, 0.15);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(56, 217, 255, 0.06);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 217, 255, 0.08);
 `;
 
 const TerminalTopBar = styled.div`
-  background: #071116;
+  background: #010406;
   padding: 0.75rem 1.2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -238,7 +238,7 @@ const ViewMoreButton = styled(motion.button)`
   padding: 0.85rem 2.2rem;
   border-radius: 100px;
   border: 1px solid rgba(56, 217, 255, 0.3);
-  background: rgba(16, 36, 45, 0.8);
+  background: rgba(5, 11, 14, 0.9);
   color: ${props => props.theme.text};
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;

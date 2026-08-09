@@ -71,16 +71,16 @@ const SectionSubtitle = styled(motion.p)`
 `;
 
 const TerminalWindow = styled.div`
-  background: #0B161B;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #03080B;
+  border: 1px solid rgba(56, 217, 255, 0.15);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(56, 217, 255, 0.06);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 217, 255, 0.08);
   margin-bottom: 4rem;
 `;
 
 const TerminalTopBar = styled.div`
-  background: #071116;
+  background: #010406;
   padding: 0.75rem 1.2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
