@@ -28,7 +28,7 @@
     "id": 4,
     "title": "Resource Management System",
     "description": "A modern web application built with Next.js for managing organizational resources, including allocation, tracking, and reporting.",
-    "tech": ["Next.js", "React"],
+    "tech": ["Next.js"],
     "category": "Web App",
     "github": "https://github.com/harmikrathod09"
   },
