@@ -94,8 +94,6 @@ const NavLinks = styled.ul`
     -webkit-backdrop-filter: blur(24px);
     padding: 2rem;
     gap: 2rem;
-    transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(100%)'};
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 999;
   }
 `;
@@ -258,7 +256,13 @@ const Navbar = () => {
           <span className="prompt">&gt;_</span> HR<span>.dev</span>
         </Logo>
 
-        <NavLinks isOpen={isMenuOpen}>
+        <NavLinks
+          as={motion.ul}
+          isOpen={isMenuOpen}
+          initial={false}
+          animate={{ x: isMenuOpen ? '0%' : '100%' }}
+          transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+        >
           <NavLink active={activeSection === 'about'} whileTap={{ scale: 0.97 }}>
             <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
               <span>About</span><span className="ext">.ts</span>

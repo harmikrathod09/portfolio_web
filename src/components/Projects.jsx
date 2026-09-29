@@ -52,7 +52,7 @@ const SectionSubtitle = styled(motion.p)`
 `;
 
 /* Android Studio IDE Window Wrapper */
-const IDEWindow = styled.div`
+const IDEWindow = styled(motion.div)`
   background: #03080B;
   border: 1px solid rgba(56, 217, 255, 0.15);
   border-radius: 18px;
@@ -223,7 +223,7 @@ const ProjectTreeList = styled.div`
   }
 `;
 
-const ProjectTreeItem = styled.div`
+const ProjectTreeItem = styled(motion.div)`
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
   padding: 0.55rem 0.8rem;
@@ -572,7 +572,12 @@ const Projects = () => {
           </SectionSubtitle>
         </SectionHeader>
 
-        <IDEWindow>
+        <IDEWindow
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+        >
           <IDETopBar>
             <WindowControls>
               <div className="dot" />
@@ -627,6 +632,8 @@ const Projects = () => {
                       active={isSelected}
                       isBloodify={isBloodify}
                       onClick={() => handleSelectProject(project)}
+                      whileHover={{ x: 4, backgroundColor: isBloodify ? 'rgba(255, 60, 60, 0.2)' : 'rgba(56, 217, 255, 0.15)' }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <div className="item-title">
                         <span className="file-icon">{getFileIcon(project)}</span>
