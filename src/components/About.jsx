@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiBookOpen, FiCode, FiAward, FiCompass, FiTerminal } from 'react-icons/fi';
 import { SiFlutter, SiReact, SiNextdotjs, SiPython, SiNodedotjs } from 'react-icons/si';
+import projectsData from '../data/projects.json';
 
 const AboutSection = styled.section`
   padding: 100px 5% 60px;
@@ -502,7 +503,7 @@ const About = () => {
               <span className="metric-tag">SYS_STAT #03</span>
             </MetricTopBar>
             <MetricBody>
-              <MetricValue><span className="prompt-char">&gt;</span> 11+</MetricValue>
+              <MetricValue><span className="prompt-char">&gt;</span> {projectsData.length}+</MetricValue>
               <MetricLabel>Projects Built</MetricLabel>
             </MetricBody>
           </MetricCard>
